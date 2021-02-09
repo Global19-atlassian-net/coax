@@ -30,11 +30,11 @@ from ._base import BaseReplayBuffer
 
 
 __all__ = (
-    'SimpleReplayBuffer',
+    'UniformReplayBuffer',
 )
 
 
-class SimpleReplayBuffer(BaseReplayBuffer):
+class UniformReplayBuffer(BaseReplayBuffer):
     r"""
 
     A simple ring buffer for experience replay.

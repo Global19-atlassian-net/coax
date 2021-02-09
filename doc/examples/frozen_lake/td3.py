@@ -36,7 +36,7 @@ pi_targ = pi.copy()
 
 # experience tracer
 tracer = coax.reward_tracing.NStep(n=1, gamma=0.9)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=128)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=128)
 
 
 # updaters

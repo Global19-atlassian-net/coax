@@ -45,7 +45,7 @@ qlearning2 = coax.td_learning.ClippedDoubleQLearning(
 
 # specify how to trace the transitions
 tracer = coax.reward_tracing.NStep(n=1, gamma=0.9)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=1000000)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=1000000)
 
 
 # action noise

@@ -37,7 +37,7 @@ simple_td = coax.td_learning.SimpleTD(v, optimizer=optax.adam(0.001))
 
 # specify how to trace the transitions
 tracer = coax.reward_tracing.NStep(n=5, gamma=0.9)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=256)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=256)
 
 
 for ep in range(100):

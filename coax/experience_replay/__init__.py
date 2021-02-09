@@ -26,7 +26,7 @@ Experience Replay
 .. autosummary::
     :nosignatures:
 
-    coax.experience_replay.SimpleReplayBuffer
+    coax.experience_replay.UniformReplayBuffer
     coax.experience_replay.PrioritizedReplayBuffer
 
 ----
@@ -43,17 +43,26 @@ For specific examples, have a look at the :doc:`agents for Atari games </example
 Object Reference
 ----------------
 
-.. autoclass:: coax.experience_replay.SimpleReplayBuffer
+.. autoclass:: coax.experience_replay.UniformReplayBuffer
 .. autoclass:: coax.experience_replay.PrioritizedReplayBuffer
 
 
 """
+import warnings
 
-from ._simple import SimpleReplayBuffer
+from ._uniform import UniformReplayBuffer
 from ._prioritized import PrioritizedReplayBuffer
 
 
 __all__ = (
-    'SimpleReplayBuffer',
+    'UniformReplayBuffer',
     'PrioritizedReplayBuffer',
 )
+
+
+class SimpleReplayBuffer(UniformReplayBuffer):
+    def __init__(self, capacity, random_seed=None):
+        warnings.warn(
+            "SimpleReplayBuffer was renamed to UniformReplayBuffer; SimpleReplayBuffer will be "
+            "removed soon", DeprecationWarning)
+        super().__init__(capacity, random_seed)

@@ -35,7 +35,7 @@ q_targ = q.copy()
 
 # experience tracer
 tracer = coax.reward_tracing.NStep(n=1, gamma=0.9)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=100000)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=100000)
 
 # updater
 qlearning = coax.td_learning.QLearning(q, q_targ=q_targ, loss_function=mse, optimizer=adam(0.001))

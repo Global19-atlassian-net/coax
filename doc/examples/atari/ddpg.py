@@ -70,7 +70,7 @@ determ_pg = coax.policy_objectives.DeterministicPG(pi, q, regularizer=kl_div, op
 
 # reward tracer and replay buffer
 tracer = coax.reward_tracing.NStep(n=1, gamma=0.99)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=1000000)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=1000000)
 
 
 while env.T < 3000000:

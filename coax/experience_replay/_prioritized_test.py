@@ -26,14 +26,14 @@ import pytest
 import numpy as onp
 
 from ..utils import get_transition_batch
-from ._simple import SimpleReplayBuffer
+from ._uniform import UniformReplayBuffer
 from ._prioritized import PrioritizedReplayBuffer
 
 
 @pytest.mark.parametrize('n', [2, 4])  # 2 * batch_size < capacity, 4 * batch_size > capacity
 def test_consistency(n):
     env = gym.make('FrozenLakeNonSlippery-v0')
-    buffer1 = SimpleReplayBuffer(capacity=100)
+    buffer1 = UniformReplayBuffer(capacity=100)
     buffer2 = PrioritizedReplayBuffer(capacity=100)
 
     for i in range(n):
@@ -55,7 +55,7 @@ def test_consistency(n):
 
 def test_sample():
     env = gym.make('FrozenLakeNonSlippery-v0')
-    buffer1 = SimpleReplayBuffer(capacity=100, random_seed=13)
+    buffer1 = UniformReplayBuffer(capacity=100, random_seed=13)
     buffer2 = PrioritizedReplayBuffer(capacity=100, random_seed=13)
 
     for i in range(4):

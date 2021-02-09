@@ -2,6 +2,13 @@ Release Notes
 =============
 
 
+.. v0.1.7
+.. ------
+
+.. - Renamed :code:`SimpleReplayBuffer` to :class:`UniformReplayBuffer <coax.experience_replay.UniformReplayBuffer>`.
+
+
+
 v0.1.6
 ------
 

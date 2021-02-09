@@ -69,7 +69,7 @@ ppo_clip = coax.policy_objectives.PPOClip(pi, regularizer=entropy, optimizer=ada
 
 # reward tracer and replay buffer
 tracer = coax.reward_tracing.NStep(n=5, gamma=0.99)
-buffer = coax.experience_replay.SimpleReplayBuffer(capacity=256)
+buffer = coax.experience_replay.UniformReplayBuffer(capacity=256)
 
 
 # run episodes
